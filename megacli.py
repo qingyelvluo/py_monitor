@@ -6,6 +6,13 @@ import os
 megacli = '/opt/MegaRAID/MegaCli/MegaCli64'
 
 def get_raid_info():
+    """Get raid configuration.
+    Args:
+        
+    Return:
+        
+    Exception:
+    """
 
     # Virtual Disk: 2 (target id: 1)
     # Virtual Drive: 2    // another syntax
