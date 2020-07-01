@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 #coding: utf-8
-'''Script used to monitor disk
-'''
+"""Script is used to monitor disk hardware status.
+"""
 
 import socket
 import fcntl
