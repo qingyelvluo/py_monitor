@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 #coding: utf-8
-'''Script used to monitor raid.
-'''
+"""Used to monitor hard disk raid status,
+   Unstable notification will be sent.
+"""
 
 import socket
 import fcntl
