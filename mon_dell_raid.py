@@ -14,7 +14,7 @@ from subprocess import Popen, PIPE
 
 cmd = '/opt/MegaRAID/MegaCli/MegaCli64'
 
-##Items need to be monitored
+#Items need to be monitored
 keys = ['Virtual Drive',
         'RAID Level',
         'Size',
@@ -121,31 +121,26 @@ def main():
             list1 = i.split('\n')
     #print list1
 
-    ##get last items, every vd has 6 item.
-    ##values stored in klist
+    #get last items, every vd has 6 item.
+    #values stored in klist
     for j in list1:
         for k in keys:
             if not j.find(k):
                 klist.append(j)
 
-    #print klist
-
     Len = len(klist)
     ns = locals()
 
     for n in range(0, Len/6):
-        ##generated dynamically, used to store every virtual disk info
+        #generated dynamically, used to store every virtual disk info
         ns['LK%s' %n] = []
         for m in range(0, 6):
             #ns['LK%s' %n].append(klist[m+n*6].strip().replace('d:', 'd', 1).split(":"))
             ns['LK%s' %n].append(klist[m+n*6].strip().split(":", 1))
 
-        ##Yes, final data is saved in one dict.
-        #print ns['LK%s' %n]
+        #data is saved in one dict.
         ns['DK%s' %n] = dict(ns['LK%s' %n])
-        #print ns['DK%s' %n]
         mon_item(ns['DK%s' %n])
-
 
 if __name__ == '__main__':
     main()
